@@ -103,10 +103,71 @@ Encoding is not encryption and offers no real security.
 
 **Commands Used:**
 ```bash
-bandit11@bandit:~$ cat data.txt | tr 'A-Za-z' N-ZA-Mn-za-m
-The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+PS C:\Users\Harshvardhan> scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private .
+backend: gibson-0
+bandit13@bandit.labs.overthewire.org's password:
+sshkey.private                                                                        100% 1679     4.4KB/s   00:00
+PS C:\Users\Harshvardhan> ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
 ```
 **passord for next level:**
 ```bash
-7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+```
+
+## Challenge: Bandit Level 14 → Level 15
+
+Encoding is not encryption and offers no real security.
+
+**Commands Used:**
+```bash
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+bandit14@bandit:~$ nc localhost 30000
+
+Wrong! Please enter the correct current password.
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+bandit14@bandit:~$ nc localhost 30000
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+Correct!
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+```
+**passord for next level:**
+```bash
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+```
+
+## Challenge: Bandit Level 15 → Level 16
+
+Encoding is not encryption and offers no real security.
+
+**Commands Used:**
+```bash
+openssl s_client -connect localhost:30001
+..........
+read R BLOCK
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+Correct!
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+
+closed
+```
+**passord for next level:**
+```bash
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+```
+
+## Challenge: Bandit Level 16 → Level 17
+
+Encoding is not encryption and offers no real security.
+
+**Commands Used:**
+```bash
+
+```
+**passord for next level:**
+```bash
+
 ```
