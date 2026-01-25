@@ -2,8 +2,6 @@
 
 ## Challenge: Bandit Level 10 → Level 11
 
-Encoding is not encryption and offers no real security.
-
 **Commands Used:**
 ```bash
 bandit10@bandit:~$ base64 -d data.txt
@@ -16,8 +14,6 @@ dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 
 ## Challenge: Bandit Level 11 → Level 12
 
-Encoding is not encryption and offers no real security.
-
 **Commands Used:**
 ```bash
 bandit11@bandit:~$ cat data.txt | tr 'A-Za-z' N-ZA-Mn-za-m
@@ -29,8 +25,6 @@ The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 ```
 
 ## Challenge: Bandit Level 12 → Level 13
-
-Encoding is not encryption and offers no real security.
 
 **Commands Used:**
 ```bash
@@ -99,8 +93,6 @@ FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 
 ## Challenge: Bandit Level 13 → Level 14
 
-Encoding is not encryption and offers no real security.
-
 **Commands Used:**
 ```bash
 PS C:\Users\Harshvardhan> scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private .
@@ -118,8 +110,6 @@ MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
 ```
 
 ## Challenge: Bandit Level 14 → Level 15
-
-Encoding is not encryption and offers no real security.
 
 **Commands Used:**
 ```bash
@@ -141,8 +131,6 @@ Correct!
 
 ## Challenge: Bandit Level 15 → Level 16
 
-Encoding is not encryption and offers no real security.
-
 **Commands Used:**
 ```bash
 openssl s_client -connect localhost:30001
@@ -160,8 +148,6 @@ kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
 ```
 
 ## Challenge: Bandit Level 16 → Level 17
-
-Encoding is not encryption and offers no real security.
 
 **Commands Used:**
 ```bash
@@ -223,8 +209,6 @@ EReVavePLFHtFlFsjn3hyzMlvSuSAcRD
 
 ## Challenge: Bandit Level 17 → Level 18
 
-Encoding is not encryption and offers no real security.
-
 **Commands Used:**
 ```bash
 bandit17@bandit:~$ cat /etc/bandit_pass/bandit17
@@ -243,8 +227,6 @@ x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
 ```
 
 ## Challenge: Bandit Level 18 → Level 19
-
-Encoding is not encryption and offers no real security.
 
 **Commands Used:**
 ```bash
@@ -270,13 +252,109 @@ cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
 ## Challenge: Bandit Level 19 → Level 20
 
-Encoding is not encryption and offers no real security.
-
 **Commands Used:**
 ```bash
-
+bandit19@bandit:~$ ls -l
+total 16
+-rwsr-x--- 1 bandit20 bandit19 14884 Oct 14 09:26 bandit20-do
+bandit19@bandit:~$ ./bandit20-do
+Run a command as another user.
+  Example: ./bandit20-do whoami
+bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 ```
 **passord for next level:**
 ```bash
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+```
 
+## Challenge: Bandit Level 20 → Level 21
+
+**Commands Used:**
+```bash
+bandit20@bandit:~$ ls -l
+total 16
+-rwsr-x--- 1 bandit21 bandit20 15608 Oct 14 09:26 suconnect
+bandit20@bandit:~$ ./suconnect 4444
+Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+Password matches, sending next password
+
+# made a dummy server to interact with the bandit21 with two terminals open one to connect to 21 and the other to verify the password of the level
+
+bandit20@bandit:~$ nc -l 4444
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+```
+**passord for next level:**
+```bash
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+```
+
+## Challenge: Bandit Level 21 → Level 22
+
+**Commands Used:**
+```bash
+bandit21@bandit:~$ ls -l /etc/cron.d/
+total 40
+-r--r----- 1 root root  47 Oct 14 09:26 behemoth4_cleanup
+-rw-r--r-- 1 root root 123 Oct 14 09:19 clean_tmp
+-rw-r--r-- 1 root root 120 Oct 14 09:26 cronjob_bandit22
+-rw-r--r-- 1 root root 122 Oct 14 09:26 cronjob_bandit23
+-rw-r--r-- 1 root root 120 Oct 14 09:26 cronjob_bandit24
+-rw-r--r-- 1 root root 201 Apr  8  2024 e2scrub_all
+-r--r----- 1 root root  48 Oct 14 09:27 leviathan5_cleanup
+-rw------- 1 root root 138 Oct 14 09:28 manpage3_resetpw_job
+-rwx------ 1 root root  52 Oct 14 09:29 otw-tmp-dir
+-rw-r--r-- 1 root root 396 Jan  9  2024 sysstat
+bandit21@bandit:~$ cat /etc/cron.d/cronjob_bandit22
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+bandit21@bandit:~$ cat /usr/bin/cronjob_bandit22.sh
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+bandit21@bandit:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+```
+**passord for next level:**
+```bash
+tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+```
+
+## Challenge: Bandit Level 22 → Level 23
+
+**Commands Used:**
+```bash
+bandit22@bandit:/etc/cron.d$ ls -l
+total 40
+-r--r----- 1 root root  47 Oct 14 09:26 behemoth4_cleanup
+-rw-r--r-- 1 root root 123 Oct 14 09:19 clean_tmp
+-rw-r--r-- 1 root root 120 Oct 14 09:26 cronjob_bandit22
+-rw-r--r-- 1 root root 122 Oct 14 09:26 cronjob_bandit23
+-rw-r--r-- 1 root root 120 Oct 14 09:26 cronjob_bandit24
+-rw-r--r-- 1 root root 201 Apr  8  2024 e2scrub_all
+-r--r----- 1 root root  48 Oct 14 09:27 leviathan5_cleanup
+-rw------- 1 root root 138 Oct 14 09:28 manpage3_resetpw_job
+-rwx------ 1 root root  52 Oct 14 09:29 otw-tmp-dir
+-rw-r--r-- 1 root root 396 Jan  9  2024 sysstat
+bandit22@bandit:/etc/cron.d$ cat /etc/cron.d/cronjob_bandit23
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+bandit22@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+andit22@bandit:~$ echo "I am user bandit23" | md5sum
+8ca319486bfbbc3663ea0fbe81326349  -
+bandit22@bandit:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
+```
+**passord for next level:**
+```bash
+0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
 ```
